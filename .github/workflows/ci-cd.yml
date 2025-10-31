@@ -33,4 +33,7 @@ jobs:
       run: docker build -t my-flask-app .
 
     - name: Run Docker container
-      run: docker run -d -p 8080:8080 my-flask-app
+      run: |
+        docker run -d -p 5001:5000 nerdycool/my-flask-app:latest
+        sleep 10 # wait for app to start
+        curl http://localhost:5001
